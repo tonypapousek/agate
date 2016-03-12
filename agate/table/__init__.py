@@ -305,7 +305,7 @@ class Table(utils.Patchable):
         else:
             return self._fork(self.rows, column_names, self._column_types, row_names=row_names)
 
-    def append_name(self, append_string=None):
+    def append_column_name(self, append_string=None):
         """
         Creates a copy of this table with appended column names.
         In future, this should be extended to include row names.
