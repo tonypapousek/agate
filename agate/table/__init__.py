@@ -305,6 +305,23 @@ class Table(utils.Patchable):
         else:
             return self._fork(self.rows, column_names, self._column_types, row_names=row_names)
 
+    def append_name(self, append_string=None):
+        """
+        Creates a copy of this table with appended column names.
+        In future, this should be extended to include row names.
+
+        :param append_string:
+            Name to be appended to  column names for the renamed table.
+        """
+
+        if append_string is None:
+            return self
+        else:
+            new_names = []
+            for column in self.columns:
+                new_names.append(column.name + str(append_string))
+            return self.rename(column_names = new_names)
+
     @classmethod
     def from_csv(cls, path, column_names=None, column_types=None, row_names=None, header=True, sniff_limit=0, encoding='utf-8', **kwargs):
         """
