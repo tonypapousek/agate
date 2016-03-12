@@ -14,6 +14,18 @@ You can rename the columns in a table by using the :meth:`.Table.rename` method 
     # or
     new_table = table.rename(column_names = {'a': 'one', 'b': 'two', 'c': 'three'})
 
+Append column names
+===============
+
+You can append strings to the end of column names in a table by using the :meth:`.Table.append_column_name` method and specifying the string to append.
+
+.. code-block:: python
+
+    table = Table(rows, column_names = ['a', 'b', 'c'])
+    new_table = table.append_column_name(append_string)
+
+
+
 Reorder columns
 ===============
 
